@@ -1,4 +1,4 @@
-package com.shadow.code_844;
+package com.shadow.stack.code_844;
 
 import java.util.Stack;
 

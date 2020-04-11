@@ -1,4 +1,4 @@
-package com.shadow.code_1047;
+package com.shadow.stack.code_1047;
 
 import java.util.Stack;
 

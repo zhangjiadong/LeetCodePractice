@@ -1,4 +1,4 @@
-package com.shadow.code_155;
+package com.shadow.stack.code_155;
 
 import java.util.Stack;
 
