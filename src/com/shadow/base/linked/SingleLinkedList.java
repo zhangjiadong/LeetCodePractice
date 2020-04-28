@@ -1,7 +1,7 @@
-package com.shadow.linked.base;
+package com.shadow.base.linked;
 
 /**
- * 单链表
+ * 双向链表
  *
  * @author Shadow
  * @createDate 2020/4/20

@@ -1,4 +1,4 @@
-package com.shadow.stack.base;
+package com.shadow.base.stack;
 
 /**
  * 栈
