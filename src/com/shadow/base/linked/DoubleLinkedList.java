@@ -9,9 +9,9 @@ package com.shadow.base.linked;
  */
 public class DoubleLinkedList<E> {
   
-  transient Node<E> first;
-  transient Node<E> last;
-  transient int size;
+  private Node<E> first;
+  private Node<E> last;
+  private int size;
   
   private static class Node<E> {
     E item;
@@ -25,8 +25,16 @@ public class DoubleLinkedList<E> {
     }
   }
   
+  public DoubleLinkedList() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+  
   /**
    * 获取链表第一个元素
+   * 时间复杂度 O(1)
+   * 空间复杂度 O(1)
    *
    * @return E
    */
@@ -36,6 +44,8 @@ public class DoubleLinkedList<E> {
   
   /**
    * 获取链表最后一个元素
+   * 时间复杂度 O(1)
+   * 空间复杂度O(1)
    *
    * @return E
    */
@@ -69,6 +79,8 @@ public class DoubleLinkedList<E> {
   
   /**
    * 链接至最后一个元素
+   * 时间复杂度O(1)
+   * 空间复杂度O(1)
    *
    * @param e 元素
    */
@@ -86,6 +98,8 @@ public class DoubleLinkedList<E> {
   
   /**
    * 添加至头部
+   * 时间复杂度 O(1)
+   * 空间复杂度 O(1)
    *
    * @param e 元素
    */
@@ -103,6 +117,9 @@ public class DoubleLinkedList<E> {
   
   /**
    * 移除元素
+   * <p>
+   * 时间复杂度 O(1)
+   * 空间复杂度 O(1)
    *
    * @param x 要移除的元素
    */
@@ -129,6 +146,9 @@ public class DoubleLinkedList<E> {
   
   /**
    * 移除第一个出现元素的位置
+   * <p>
+   * 时间复杂度 O(N)
+   * 空间复杂度 O(1)
    *
    * @param e 要移除的元素
    * @return {@code true} 如果移除成功
@@ -154,6 +174,8 @@ public class DoubleLinkedList<E> {
   
   /**
    * 清空链表
+   * 时间复杂度 O(N)
+   * 空间复杂度 O(1)
    */
   public void clear() {
     for (Node<E> x = first; x != null; ) {
@@ -169,6 +191,8 @@ public class DoubleLinkedList<E> {
   
   /**
    * 根据索引查找
+   * 时间复杂度 O(N)
+   * 空间复杂度 O(1)
    *
    * @param index 索引
    * @return list中的元素
@@ -209,7 +233,7 @@ public class DoubleLinkedList<E> {
     return index >= 0 && index <= size;
   }
   
-  Node<E> node(int index) {
+  private Node<E> node(int index) {
     if (index < (size >> 1)) {
       Node<E> x = first;
       for (int i = 0; i < index; i++) {
@@ -223,5 +247,15 @@ public class DoubleLinkedList<E> {
       }
       return x;
     }
+  }
+  
+  public static void main(String[] args) {
+    DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.addFirst(5);
+    System.out.println(list.get(0));
+    System.out.println(list.size());
   }
 }

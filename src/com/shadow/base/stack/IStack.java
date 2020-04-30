@@ -22,6 +22,9 @@ public class IStack<E> {
   
   /**
    * 弹出栈顶元素
+   * <p>
+   * 时间复杂度 O(1)
+   * 空间复杂度 O(1)
    *
    * @return E
    */
@@ -38,6 +41,8 @@ public class IStack<E> {
   
   /**
    * 查看栈顶元素
+   * 时间复杂度 O(1)
+   * 空间复杂度 O(1)
    *
    * @return E
    */
@@ -51,6 +56,8 @@ public class IStack<E> {
   
   /**
    * 入栈
+   * 时间复杂度 0(1)
+   * 空间复杂度 O(1)
    *
    * @param e 入栈元素
    * @return E
@@ -102,6 +109,16 @@ public class IStack<E> {
    */
   public boolean isEmpty() {
     return elementsCount == 0;
+  }
+  
+  
+  public static void main(String[] args) {
+    IStack<Integer> stack = new IStack<>(2);
+    stack.push(1);
+    stack.push(2);
+    stack.push(4);
+    stack.push(5);
+    System.out.println(stack.size());
   }
   
 }

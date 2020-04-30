@@ -30,6 +30,11 @@ public class SingleLinkedList<E> {
     return addLast(element);
   }
   
+  /**
+   * 添加节点到头部
+   * 时间复杂度 O(1)
+   * 空间复杂度 O(1)
+   */
   public E addFirst(E element) {
     if (head == null) {
       head = new Node<>(element, null);
@@ -40,6 +45,11 @@ public class SingleLinkedList<E> {
     return element;
   }
   
+  /**
+   * 添加节点到尾部
+   * 时间复杂度 O(N)
+   * 空间复杂度 O(1)
+   */
   public E addLast(E element) {
     if (head == null) {
       head = new Node<>(element, null);
@@ -56,6 +66,11 @@ public class SingleLinkedList<E> {
     return element;
   }
   
+  /**
+   * 打印所有节点
+   * 时间复杂度 O(N)
+   * 空间复杂度 O(1)
+   */
   public void printAllElement() {
     if (head == null) {
       System.out.println("Element is empty!");
@@ -70,9 +85,21 @@ public class SingleLinkedList<E> {
     return size;
   }
   
+  /**
+   * 根据index查找数据
+   * 时间复杂度 O(N)
+   * 空间复杂度 O(1)
+   */
   public E get(int index) {
-    if (index >= size) {
+    if (index < 0 || index >= size) {
       throw new IndexOutOfBoundsException("The index is out of bounds!");
+    }
+    int count = 0;
+    for (Node<E> x = head; x != null; x = x.next) {
+      if (count == index) {
+        return x.element;
+      }
+      count++;
     }
     return null;
   }
@@ -81,6 +108,12 @@ public class SingleLinkedList<E> {
     return size == 0;
   }
   
+  /**
+   * 判断元素是够存在
+   * <p>
+   * 时间复杂度O(N)
+   * 空间复杂度O(1)
+   */
   public boolean contain(E element) {
     for (Node<E> x = head; x != null; x = x.next) {
       if (element == null && x.element == null) {
@@ -93,6 +126,11 @@ public class SingleLinkedList<E> {
     return false;
   }
   
+  /**
+   * 移除元素
+   * 时间复杂度 O(N)
+   * 空间复杂度 O(1)
+   */
   public boolean remove(E element) {
     if (head == null) {
       return false;
@@ -109,12 +147,12 @@ public class SingleLinkedList<E> {
       if (target != null) {
         if (pre == null) {
           head = null;
-          size--;
         } else {
           pre.next = target.next;
           target.element = null; //help gc
           target.next = null; // help gc
         }
+        size--;
         return true;
       } else {
         pre = x;
@@ -131,7 +169,7 @@ public class SingleLinkedList<E> {
     list.add(3);
     list.add(4);
     System.out.println(list.remove(null));
-    list.printAllElement();
+    System.out.println(list.get(2));
   }
   
 }
