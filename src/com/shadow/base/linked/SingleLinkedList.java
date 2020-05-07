@@ -161,15 +161,52 @@ public class SingleLinkedList<E> {
     return false;
   }
   
+  /**
+   * 循环翻转链表
+   * https://www.javazhiyin.com/32787.html
+   */
+  public void reverseByLoop() {
+    if (head == null || head.next == null) {
+      return;
+    }
+    Node<E> preNode = null;
+    Node<E> nextNode = null;
+    while (head != null) {
+      nextNode = head.next;
+      head.next = preNode;
+      preNode = head;
+      head = nextNode;
+    }
+    head = preNode;
+  }
+  
+  /**
+   * 递归链表翻转
+   */
+  public Node<E> reverseByRecursion(Node<E> head) {
+    if (head == null || head.next == null) {
+      return head;
+    }
+    Node<E> newHead = reverseByRecursion(head.next);
+    head.next.next = head;
+    head.next = null;
+    return newHead;
+  }
+  
   public static void main(String[] args) {
     SingleLinkedList<Integer> list = new SingleLinkedList<>();
     list.add(1);
     list.add(2);
-    list.add(null);
     list.add(3);
     list.add(4);
-    System.out.println(list.remove(null));
-    System.out.println(list.get(2));
+    System.out.println("------翻转之前----");
+    list.printAllElement();
+    Node<Integer> head = list.reverseByRecursion(list.head);
+    System.out.println("-----翻转之后----");
+    while (head != null) {
+      System.out.printf("%s ", head.element);
+      head = head.next;
+    }
   }
   
 }
