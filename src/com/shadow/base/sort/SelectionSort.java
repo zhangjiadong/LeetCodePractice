@@ -3,6 +3,7 @@ package com.shadow.base.sort;
 /**
  * 选择排序
  * 分已排序区间和未排序区间。但是选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。
+ * 不稳定算法
  */
 public class SelectionSort {
   
